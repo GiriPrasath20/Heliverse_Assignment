@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - A Pen by Giri Prasath</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Management</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+
+<div ng-controller="UserController">
+  <input type="text" ng-model="searchName" placeholder="Search by name">
+  <select ng-model="selectedDomain" ng-options="domain for domain in domains">
+    <option value="">Select Domain</option>
+  </select>
+  <select ng-model="selectedGender" ng-options="gender for gender in genders">
+    <option value="">Select Gender</option>
+  </select>
+  <select ng-model="selectedAvailability" ng-options="availability for availability in availabilities">
+    <option value="">Select Availability</option>
+  </select>
+
+  <div ng-repeat="user in filteredUsers | startFrom:startItem | limitTo:itemsPerPage">
+    <div class="card">
+      <h2>{{user.name}}</h2>
+      <p>Domain: {{user.domain}}</p>
+      <p>Gender: {{user.gender}}</p>
+      <p>Availability: {{user.availability}}</p>
+      <button ng-click="addToTeam(user)">Add to Team</button>
+    </div>
+  </div>
+
+  <h2>Team</h2>
+  <div ng-repeat="user in team">
+    <div class="card">
+      <h2>{{user.name}}</h2>
+      <p>Domain: {{user.domain}}</p>
+      <p>Gender: {{user.gender}}</p>
+      <p>Availability: {{user.availability}}</p>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
+  <script  src="./script.js"></script>
+
+</body>
+</html>
